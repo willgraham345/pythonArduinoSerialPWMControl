@@ -24,6 +24,7 @@ int dutyCycle; //Duty cycle initialization
   // Note: Duty cycle will range from 0-5V
 
 
+
 /********************
  ** Setup Function **
  ********************/
@@ -54,7 +55,7 @@ void loop(void) {
     ;//    do nothing here
   }
   dutyCycle = Serial.read();
-  dutyCycle_255 = dutyCycle*2.55 // Convert the 0-100 of duty cyle, to 0-255 of analogWrite
+  int dutyCycle_255 = int(dutyCycle*2.55); // Convert the 0-100 of duty cyle, to 0-255 of analogWrite
   analogWrite(highVoltageRelayPin, dutyCycle_255); //Write value to pin
   
 }
